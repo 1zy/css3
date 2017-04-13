@@ -1,0 +1,128 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3饼状loading效果</title>
+<style>
+  .wrap_1,.wrap_2{
+	  width:150px;
+	  height:150px;
+	  margin-top:10px;
+	  position:absolute;
+	  }
+  .wrap_2{
+	  background:transparent;
+	  margin:45px 35px;
+	  width:150px;
+	  height:150px;
+	  
+  }
+  span{
+	  position:absolute;
+	  display:block;
+  }
+  .one{/*底*/
+	  width:100px;
+	  height:100px;
+	  background:#4B7CD6;
+	  border-radius:50%;
+	  margin:35px 35px;
+	  }
+  .two{/*上层红色*/
+	  border:50px solid #4B7CD6;
+	  border-radius:50%;
+	  border-bottom:50px solid transparent;
+	  border-right:50px solid transparent;
+	  transform:rotate(-45deg);
+	  margin:35px 35px;
+	  z-index:100;
+	  opacity:0;
+	  animation: two ease 1s infinite;
+	}
+ @keyframes two{
+		0 {
+			opacity:0;
+			}
+		
+		29%{
+			opacity:0;
+		}
+		30%{
+			opacity:1;
+		}
+		100%{
+		    opacity:1;
+		}
+	}
+  .twos{/*蓝色*/
+	  border:50px solid #89ABDD;
+	  border-radius:50%;
+	  border-bottom:50px solid transparent;
+	  border-right:50px solid transparent;
+	  transform:rotate(-45deg);
+	  z-index:3;
+	  animation:rot ease 1s infinite;
+	  }
+	@keyframes rot{
+		0{
+			transform:rotate(-45deg)
+		}
+		100%{
+			transform:rotate(-400deg)
+		}
+	}
+   .ones{/*下层蓝色*/
+	  border:50px solid #89ABDD;;
+	  border-radius:50%;
+	  border-top:50px solid transparent;
+	  border-left:50px solid transparent;
+	  transform:rotate(-45deg);
+	  animation:ones ease 1s infinite;
+	  }
+	  @keyframes ones{
+		  0%{
+			  opacity:1;
+		  }
+		  30%{
+			  opacity:1;
+		  }
+		  30.1%{
+			  opacity:0;
+		  }
+		  100%{
+			  opacity:0;
+		  }
+	  }
+  .three{/*底环*/
+	  width:150px;
+	  height:150px;
+	  border:10px solid  #4B7CD6;
+	  border-radius:50%;
+	  border-top:8px solid transparent;
+	  transform:rotate(-90deg);
+	  animation:three 1s ease infinite
+  }
+  @keyframes three{
+	  0%{
+		  transform:rotate(-135deg)
+	  }
+	  100%{
+		  transform:rotate(-495deg);
+	  }
+  }
+</style>
+</head>
+
+<body>
+   <div class="wrap_1">
+      <span class="one"></span>
+      <span class="two"></span>
+      <span class="three"></span>
+   </div>
+    <div class="wrap_2">
+      <span class="ones"></span>
+      <span class="twos"></span>
+      <span class="threes"></span>
+   </div>
+</body>
+</html>

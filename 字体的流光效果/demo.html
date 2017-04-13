@@ -1,0 +1,139 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+   *{
+	   margin:0;
+	   padding:0;
+   }
+   .bg{
+	   background:url(t010ff92fc32f00e2af.jpg) no-repeat;
+	   width:426px;
+	   height:240px;
+	   transition:all 0.8s 0.5s ease-in;
+     }
+	 /*背景模糊*/
+    .wrap:hover .bg{
+	   -webkit-filter:blur(3px);
+     }
+	.wrap .box{
+	  width:360px;
+	  height:180px;
+	  box-sizing: border-box;
+	  position:absolute;
+	  top:33px;
+	  left:30px;
+	 }
+	 /*盒子边框*/
+	.wrap .box::before {
+	  content: '';
+	  position: absolute;
+	  left: 0;
+	  top: 50%;
+	  width: 100%;
+	  height: 0;
+	  border: 3px solid #ccc;
+	  border-width: 0 3px;
+	  overflow: hidden;
+	  visibility: hidden;
+	  transition: all 0.8s 0.8s;
+	  box-sizing: border-box;
+	}
+	
+	.wrap .box::after {
+	  content: '';
+	  position: absolute;
+	  left: 50%;
+	  top: 0;
+	  width: 0;
+	  height: 100%;
+	  border: 5px solid #ccc;;
+	  border-width: 5px 0;
+	  overflow: hidden;
+	  visibility: hidden;
+	  transition: all 0.8s 0.8s;
+	  box-sizing: border-box;
+	}
+	
+	/*边框动画*/
+	.wrap:hover .box::before {
+	  height: 100%;
+	  visibility: visible;
+	  top: 0;
+	}
+	
+	.wrap:hover .box::after {
+	  width: 100%;
+	  visibility: visible;
+	  left: 0;
+	}
+	/*文字*/
+	.art{
+		width:300px;
+		height:160px;
+		position:absolute;
+		top:0;
+		font-size:24px;
+		font-family:"微软雅黑";
+		color:#fff;
+		line-height:30px;
+		text-align:center;
+		left:60px;
+		top:70px;
+		overflow:hidden;
+		visibility: hidden;
+		transition:all 1.2s 0.8s ease;
+		
+	}
+	.wrap:hover .art{
+		visibility: visible;
+	}
+	/*文字流光 效果*/
+	.first{
+	  background-image: -webkit-linear-gradient(left, blue, red 25%, blue 50%, red 75%, blue 100%);/*背景*/
+	  color: transparent;
+	  -webkit-text-fill-color: transparent;
+	  -webkit-background-clip: text;
+	  -webkit-background-size: 200% 100%;
+	  background-size: 200% 100%;
+	  -webkit-animation: masked-animation 4s 0.5s infinite linear;
+	}
+	
+	
+	@keyframes masked-animation {
+	  0% {
+		background-position: 0 0;
+	  }
+	  100% {
+		background-position: -100% 0;
+	  }
+	}
+	
+	@-webkit-keyframes masked-animation {
+	  0% {
+		background-position: 0 0;
+	  }
+	  100% {
+		background-position: -100% 0;
+	  }
+	}
+	.second{
+		color:#fff;
+	}
+
+</style>
+</head>
+
+<body>
+  <div class="wrap">
+      <div class="bg"></div>
+      <div class="box"></div>
+      <div class="art">
+         <p class="first">欢迎参加百度前端技术学院</p>
+         <p class="second">立刻报名</p>
+     </div>
+  </div>
+</body>
+</html>
